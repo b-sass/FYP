@@ -1,0 +1,13 @@
+div {
+  width: 100%;
+}
+
+div.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+div.container, div.component {
+  border: 1px blue solid;
+}
