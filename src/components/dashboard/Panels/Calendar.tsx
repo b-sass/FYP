@@ -1,4 +1,4 @@
-import "../styles/main.css"
+// import "../styles/global.css"
 
 let Calendar = () => {
   return(

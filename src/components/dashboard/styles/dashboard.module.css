@@ -1,0 +1,15 @@
+.dashboard {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  
+    text-align: center;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+  
+    /* margin: 0.5em; */
+    padding: 1px;
+    height: 100vh;
+}

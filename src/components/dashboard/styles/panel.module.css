@@ -1,0 +1,12 @@
+.panel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.panelItem {
+    padding: 3em;
+    background-color: var(--primary-two);
+    border-radius: 12px;
+}
