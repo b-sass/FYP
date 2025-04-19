@@ -3,10 +3,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    gap: 1em;
 }
 
 .panelItem {
-    padding: 3em;
+    width: 100%;
+    height: 100%;
     background-color: var(--primary-two);
     border-radius: 12px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

@@ -6,7 +6,7 @@ let Dashboard = () => {
     return(
         <div className={styles.dashboard}>
             <panels.LeftPanel />
-            <panels.MiddlePanel />
+            {/* <panels.MiddlePanel /> */}
             <panels.RightPanel />
         </div>
     );

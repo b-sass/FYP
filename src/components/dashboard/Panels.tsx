@@ -29,17 +29,15 @@ let MiddlePanel = () => {
 
 let RightPanel = () => {
 	return (
-	  <>
 		<div className={styles.panel}>
-		  <div className={styles.panelItem}>
-			<Todo/>
-		  </div>
-		  <div className={styles.panelItem}>
-			<Record />
-		  </div>
+			<div className={styles.panelItem}>
+				<Todo/>
+			</div>
+			<div className={styles.panelItem}>
+				<Record />
+			</div>
 		</div>
-	  </>
 	);
-  }
+};
 
 export { LeftPanel, MiddlePanel, RightPanel };

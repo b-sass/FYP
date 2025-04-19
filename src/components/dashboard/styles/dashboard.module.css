@@ -9,7 +9,7 @@
     flex-direction: row;
     justify-content: space-between;
   
-    /* margin: 0.5em; */
-    padding: 1px;
+    padding: 1em;
+    gap: 1em;
     height: 100vh;
 }
