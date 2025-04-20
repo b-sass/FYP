@@ -1,0 +1,44 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 60px;
+    background: #222;
+    transition: width 0.3s;
+    overflow-x: hidden;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.navbar.expanded {
+    width: 220px;
+}
+
+img {
+    margin: 16px 0 16px 16px;
+    cursor: pointer;
+    /* font-size: 2rem; */
+    color: #fff;
+    width: 2rem;
+    /* height: 2rem; */
+}
+
+.navContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+    gap: 1rem;
+    padding-top: 1rem;
+    padding-left: 16px;
+}
+
+.navbar.expanded .navContent {
+    opacity: 1;
+    pointer-events: auto;
+}
