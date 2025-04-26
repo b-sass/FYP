@@ -9,11 +9,13 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path="/login" element={<Login />} />
         <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<h1>Register</h1>} />
         <Route path="/reset-password" element={<h1>Reset Password</h1>} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/calendar" element={<h1>Calendar</h1>} />
+        <Route path="/modules" element={<h1>Modules</h1>} />
       </Routes>
     </Router>
   </React.StrictMode>,

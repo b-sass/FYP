@@ -17,10 +17,10 @@ let Navbar = () => {
             <div className={styles.navContent}>
                 {/* Place your nav links or content here */}
                 <a href="/dashboard">Dashboard</a>
-                <a href="#">Calendar</a>
-                <a href="#">Assignments</a>
-                <a href="#">Account</a>
-                <a href="#">Log Out</a>
+                <a href="/calendar">Calendar</a>
+                <a href="/modules">Modules</a>
+                <a href="/account">Account</a>
+                <a href="/login">Log Out</a>
             </div>
         </nav>
     );
