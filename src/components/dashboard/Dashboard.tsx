@@ -1,7 +1,7 @@
 import Navbar from "../ui/Navbar";
 import * as panels from "./Panels";
 
-import styles from "./styles/dashboard.module.css"
+import styles from "../../styles/dashboard/dashboard.module.css"
 
 let Dashboard = () => {
     return(

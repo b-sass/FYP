@@ -2,7 +2,7 @@ import { SessionBegin, SessionPlan } from "./Panels/Session";
 import Calendar from "./Panels/Calendar";
 import Todo from "./Panels/Todo";
 import Record from "./Panels/Record";
-import styles from "./styles/panel.module.css"
+import styles from "../../styles/dashboard/panel.module.css"
 
 let LeftPanel = () => {
 	return (

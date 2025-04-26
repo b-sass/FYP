@@ -6,9 +6,9 @@
   /* Color Palette */
   --primary-one: #2E2E2E;
   --primary-two: #424242;
-  --secondary-one: #1C2541;
-  --secondary-two: #2B3B56;
-  --tertiary: #3A506B;
+  --secondary-one: #7631d1;
+  --secondary-two: #9761de;
+  --tertiary: #d4adff;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);

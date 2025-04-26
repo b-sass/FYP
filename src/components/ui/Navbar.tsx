@@ -1,6 +1,6 @@
 import { useState } from "react"
 import menuIcon from '../../assets/menu.svg';
-import styles from "./styles/navbar.module.css"
+import styles from "../../styles/ui/navbar.module.css"
 
 let Navbar = () => {
     const [expanded, setExpanded] = useState(false);
