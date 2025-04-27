@@ -62,11 +62,22 @@
 }
 
 .taskItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 10px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
+  background-color: var(--primary-two);
+  color: var(--tertiary);
+  border: 1px solid var(--tertiary);
   border-radius: 4px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.priorityDropdown {
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid var(--tertiary);
+  border-radius: 4px;
 }
 
 .buttonGroup {

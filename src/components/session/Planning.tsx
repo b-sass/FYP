@@ -6,14 +6,20 @@ let Planning = () => {
   const [sessionTarget, setSessionTarget] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
-  const [tasks, setTasks] = useState<string[]>([]);
+  const [tasks, setTasks] = useState<{ name: string; priority: string }[]>([]);
   const [task, setTask] = useState('');
 
   const addTask = () => {
     if (task.trim()) {
-      setTasks([...tasks, task]);
+      setTasks([...tasks, { name: task, priority: 'Low' }]);
       setTask('');
     }
+  };
+
+  const updateTaskPriority = (index: number, priority: string) => {
+    const updatedTasks = [...tasks];
+    updatedTasks[index].priority = priority;
+    setTasks(updatedTasks);
   };
 
   const cancelPlanning = () => {
@@ -40,6 +46,7 @@ let Planning = () => {
   return (
     <div className={styles.container}>
       <h1>Plan Your Study Session</h1>
+
       <div className={styles.inputGroup}>
         <input
           type="text"
@@ -76,6 +83,7 @@ let Planning = () => {
           </div>
         </div>
       </div>
+
       <div className={styles.taskGroup}>
         <input
           type="text"
@@ -88,13 +96,24 @@ let Planning = () => {
           Add Task
         </button>
       </div>
+
       <ul className={styles.taskList}>
         {tasks.map((t, index) => (
           <li key={index} className={styles.taskItem}>
-            {t}
+            <span>{t.name}</span>
+            <select
+              value={t.priority}
+              onChange={(e) => updateTaskPriority(index, e.target.value)}
+              className={styles.priorityDropdown}
+            >
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
           </li>
         ))}
       </ul>
+
       <div className={styles.buttonGroup}>
         <button onClick={cancelPlanning} className={styles.cancelButton}>
           Cancel
@@ -103,6 +122,7 @@ let Planning = () => {
           Finish Planning
         </button>
       </div>
+
     </div>
   );
 }
