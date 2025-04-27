@@ -1,5 +1,5 @@
 import { SessionBegin, SessionPlan } from "./Panels/Session";
-import Calendar from "./Panels/Calendar";
+import Calendar from "../calendar/Calendar";
 import Todo from "./Panels/Todo";
 import Record from "./Panels/Record";
 import styles from "../../styles/dashboard/panel.module.css"
@@ -17,16 +17,6 @@ let LeftPanel = () => {
 	);
 }
 
-let MiddlePanel = () => {
-	return (
-		<div className={styles.panel}>
-			<div className={styles.panelItem}>
-				<Calendar />
-			</div>
-		</div>
-	);
-};
-
 let RightPanel = () => {
 	return (
 		<div className={styles.panel}>
@@ -40,4 +30,4 @@ let RightPanel = () => {
 	);
 };
 
-export { LeftPanel, MiddlePanel, RightPanel };
+export { LeftPanel, RightPanel };
