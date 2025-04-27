@@ -1,7 +1,7 @@
-let Button = ({title}: {title: string}) => {
+let Button = ({title, onClick}: {title: string, onClick: () => void}) => {
   return(
   <>
-    <button style={styles.buttonItem}>{title}</button>
+    <button style={styles.buttonItem} onClick={onClick}>{title}</button>
   </>
   );
 }

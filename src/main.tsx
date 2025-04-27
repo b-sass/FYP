@@ -1,13 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import {BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import './index.css'
 import Login from './components/login/Login'
 import Dashboard from './components/dashboard/Dashboard'
+import Planning from './components/session/Planning'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Router>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<Login />} />
@@ -16,9 +17,10 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/calendar" element={<h1>Calendar</h1>} />
         <Route path="/modules" element={<h1>Modules</h1>} />
+        <Route path="/planning" element={<Planning />} />
       </Routes>
-    </Router>
-  </React.StrictMode>,
+    </BrowserRouter>
+  </React.StrictMode>
 )
 
 // Use contextBridge

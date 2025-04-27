@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 
@@ -66,5 +66,22 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+ipcMain.on('open-planning', () => {
+  const planningWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.mjs'),
+    },
+  });
+
+  const reactRoute = VITE_DEV_SERVER_URL
+    ? `${VITE_DEV_SERVER_URL}planning` // Development mode
+    : `file://${path.join(RENDERER_DIST, 'index.html')}\\planning`;
+
+  planningWindow.menuBarVisible = false;
+  planningWindow.loadURL(reactRoute);
+});
 
 app.whenReady().then(createWindow)
