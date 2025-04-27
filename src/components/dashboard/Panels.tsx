@@ -1,5 +1,4 @@
 import { SessionBegin, SessionPlan } from "./Panels/Session";
-import Calendar from "../calendar/Calendar";
 import Todo from "./Panels/Todo";
 import Record from "./Panels/Record";
 import styles from "../../styles/dashboard/panel.module.css"

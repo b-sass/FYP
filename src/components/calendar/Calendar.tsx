@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from '../../styles/calendar/calendar.module.css';
 import Navbar from '../ui/Navbar';
 
