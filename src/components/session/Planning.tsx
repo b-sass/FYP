@@ -4,7 +4,8 @@ import styles from '../../styles/session/planning.module.css';
 let Planning = () => {
   const [sessionName, setSessionName] = useState('');
   const [sessionTarget, setSessionTarget] = useState('');
-  const [sessionDate, setSessionDate] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
   const [tasks, setTasks] = useState<string[]>([]);
   const [task, setTask] = useState('');
 
@@ -18,7 +19,8 @@ let Planning = () => {
   const cancelPlanning = () => {
     setSessionName('');
     setSessionTarget('');
-    setSessionDate('');
+    setStartDate('');
+    setEndDate('');
     setTasks([]);
     setTask('');
   };
@@ -27,7 +29,8 @@ let Planning = () => {
     console.log({
       sessionName,
       sessionTarget,
-      sessionDate,
+      startDate,
+      endDate,
       tasks,
     });
     alert('Session planning saved!');
@@ -52,12 +55,26 @@ let Planning = () => {
           onChange={(e) => setSessionTarget(e.target.value)}
           className={styles.input}
         />
-        <input
-          type="datetime-local"
-          value={sessionDate}
-          onChange={(e) => setSessionDate(e.target.value)}
-          className={styles.input}
-        />
+        <div className={styles.datePickers}>
+          <div>
+            <label className={styles.label}>Start Date and Time</label>
+            <input
+              type="datetime-local"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              className={styles.dateInput}
+            />
+          </div>
+          <div>
+            <label className={styles.label}>Expected End Date and Time</label>
+            <input
+              type="datetime-local"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              className={styles.dateInput}
+            />
+          </div>
+        </div>
       </div>
       <div className={styles.taskGroup}>
         <input
