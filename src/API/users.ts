@@ -1,7 +1,7 @@
 const API_URL = "https://fyp-server-bxs6.onrender.com/api";
 
 let getUser = async () => {
-  let token = localStorage.getItem("userToken")
+  let token = localStorage.getItem("token")
 
   try {
     const response = await fetch(`${API_URL}/users`, {

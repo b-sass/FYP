@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createSession } from '../../API/sessions';
 import styles from '../../styles/session/planning.module.css';
 
 let Planning = () => {
@@ -8,6 +9,7 @@ let Planning = () => {
   const [endDate, setEndDate] = useState('');
   const [tasks, setTasks] = useState<{ name: string; priority: string }[]>([]);
   const [task, setTask] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const addTask = () => {
     if (task.trim()) {
@@ -31,16 +33,23 @@ let Planning = () => {
     setTask('');
   };
 
-  const finishPlanning = () => {
-    console.log({
+  const finishPlanning = async () => {
+    if (!sessionName || !sessionTarget || !startDate || !endDate || tasks.length === 0) {
+      alert('Please fill in all fields and add at least one task.');
+      return;
+    }
+
+    setLoading(true);
+
+    await createSession(
       sessionName,
       sessionTarget,
       startDate,
       endDate,
-      tasks,
-    });
-    alert('Session planning saved!');
-    cancelPlanning();
+      tasks
+    );
+
+    setLoading(false);
   };
 
   return (
@@ -119,7 +128,7 @@ let Planning = () => {
           Cancel
         </button>
         <button onClick={finishPlanning} className={styles.finishButton}>
-          Finish Planning
+          {loading ? 'Saving...' : 'Finish Planning'}
         </button>
       </div>
 
