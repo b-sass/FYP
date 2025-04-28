@@ -7,6 +7,7 @@ import Planning from './components/session/Planning'
 import Calendar from './components/calendar/Calendar'
 import LoginContainer from './components/login/LoginContainer'
 import Study from './components/session/Study'
+import Assignments from './components/assignments/Assignments'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -17,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/reset-password" element={<h1>Reset Password</h1>} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/calendar" element={<Calendar />} />
-        <Route path="/modules" element={<h1>Modules</h1>} />
+        <Route path="/assignments" element={<Assignments />} />
         <Route path="/planning" element={<Planning />} />
         <Route path="/study" element={<Study />} />
       </Routes>

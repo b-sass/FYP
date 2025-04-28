@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-x: auto;
+  margin-left: 60px;
+  background-color: var(--primary-one);
+}
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+  gap: 20px;
+}
+
+.column {
+  min-width: 200px;
+  background-color: var(--primary-two);
+  color: var(--tertiary);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.addColumn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  height: 50px;
+  background-color: var(--secondary-one);
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* margin: 1em; */
+}
+
+.addColumn:hover {
+  background-color: var(--secondary-two);
+}

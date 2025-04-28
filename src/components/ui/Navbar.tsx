@@ -18,7 +18,7 @@ let Navbar = () => {
                 {/* Place your nav links or content here */}
                 <a href="/dashboard">Dashboard</a>
                 <a href="/calendar">Calendar</a>
-                <a href="/modules">Modules</a>
+                <a href="/assignments">Assignments</a>
                 <a href="/account">Account</a>
                 <a href="/login">Log Out</a>
             </div>
