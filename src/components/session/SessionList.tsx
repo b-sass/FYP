@@ -1,7 +1,15 @@
+import { useNavigate } from 'react-router-dom';
 import styles from "../../styles/session/list.module.css"
 import { Session } from "../../types/Session";
 
-let SessionList = ({sessions, onPick, onClose}: {sessions: Session[], onPick: () => void, onClose: () => void}) => {
+let SessionList = ({sessions, onClose}: {sessions: Session[], onClose: () => void}) => {
+  const navigate = useNavigate();
+
+  const handlePick = (session: Session) => {
+    navigate('/study', { state: { session } });
+    onClose(); // Close the modal after navigating
+  };
+  
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modal}>
@@ -11,7 +19,7 @@ let SessionList = ({sessions, onPick, onClose}: {sessions: Session[], onPick: ()
             <li key={session.id} className={styles.sessionItem}>
               <span>{session.name}</span>
               <button
-                onClick={onPick}
+                onClick={() => handlePick(session)}
                 className={styles.chooseButton}
               >
                 Choose

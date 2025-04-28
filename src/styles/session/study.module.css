@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.leftColumn {
+  flex: 1;
+  padding: 20px;
+  background-color: var(--primary-one);
+  color: var(--tertiary);
+  overflow-y: auto;
+}
+
+.rightColumn {
+  flex: 1;
+  padding: 20px;
+  background-color: var(--primary-two);
+  color: var(--tertiary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.taskList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.taskItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--primary-three);
+  border: 1px solid var(--tertiary);
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.timer {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.timerControls {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: var(--secondary-one);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--secondary-two);
+}

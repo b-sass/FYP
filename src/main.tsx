@@ -6,6 +6,7 @@ import Dashboard from './components/dashboard/Dashboard'
 import Planning from './components/session/Planning'
 import Calendar from './components/calendar/Calendar'
 import LoginContainer from './components/login/LoginContainer'
+import Study from './components/session/Study'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/modules" element={<h1>Modules</h1>} />
         <Route path="/planning" element={<Planning />} />
+        <Route path="/study" element={<Study />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
