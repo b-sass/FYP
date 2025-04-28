@@ -1,4 +1,4 @@
-import { Task, Session } from "../types/Session";
+import { Session } from "../types/Session";
 const API = "https://fyp-server-bxs6.onrender.com/api";
 
 export let getSessions = async () => {
