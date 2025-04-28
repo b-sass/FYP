@@ -1,3 +1,4 @@
+import { Task, Session } from "../types/Session";
 const API = "https://fyp-server-bxs6.onrender.com/api";
 
 export let getSessions = async () => {
@@ -62,3 +63,35 @@ export let createSession = async (
     alert("An error occurred while creating the session. Please try again.");
   }
 };
+
+export let updateSession = async (session: Session) => {
+  console.log(session)
+  try {
+    const response = await fetch(`${API}/session`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      },
+      body: JSON.stringify({ 
+        "id": session._id,
+        "name": session.name,
+        "target": session.target,
+        "startDate": session.startDate,
+        "endDate": session.endDate,
+        "tasks": session.tasks,
+      }),
+    });
+
+    if (response.ok) {
+      alert('Session tasks updated successfully!');
+      window.location.href = "/dashboard";
+    } else {
+        const errorData = await response.json();
+        alert(`Failed to update session tasks: ${errorData.message}`);
+      }
+  } catch (error) {
+    console.error('Error updating session tasks:', error);
+    alert('An error occurred. Please try again.');
+  }
+}

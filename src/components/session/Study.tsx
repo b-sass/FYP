@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { updateSession } from '../../API/sessions';
 import styles from '../../styles/session/study.module.css';
 
 let Study = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const { session } = location.state;
 
-  const [timeLeft, setTimeLeft] = useState(1 * 5); // Default 25 minutes
+  const [timeLeft, setTimeLeft] = useState(25 * 60); // Default 25 minutes
   const [isRunning, setIsRunning] = useState(false);
   const [tasks, setTasks] = useState(session.tasks || []);
   const [timerType, setTimerType] = useState<'study' | 'break'>('study'); // Track current timer type
@@ -39,19 +39,17 @@ let Study = () => {
     setIsRunning((prev) => !prev);
   };
 
-  const finishSession = () => {
+  const finishSession = async () => {
     const remainingTasks = tasks.filter((task: any) => !task.completed);
     if (remainingTasks.length > 0) {
       const confirmCancel = window.confirm(
         `There are ${remainingTasks.length} tasks left. Do you want to cancel the session?`
       );
-      if (confirmCancel) {
-        navigate('/dashboard'); // Navigate back to the dashboard
+      if (!confirmCancel) {
+        return;
       }
-    } else {
-      alert('Session completed successfully!');
-      navigate("/dashboard") // Navigate back to the dashboard
     }
+    await updateSession(session)
   };
 
   const formatTime = (time: number) => {

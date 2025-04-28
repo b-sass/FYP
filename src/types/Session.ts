@@ -5,8 +5,9 @@ type Task = {
 }
 
 type Session = {
-  id: string,
+  _id: string,
   name: string,
+  target: string,
   tasks?: Task[],
   startDate: string,
   endDate: string,
