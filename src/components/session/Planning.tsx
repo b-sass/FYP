@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { createSession } from '../../API/sessions';
+import { createSession } from '../../API/sessions.ts';
 import styles from '../../styles/session/planning.module.css';
 
 let Planning = () => {

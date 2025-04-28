@@ -2,7 +2,7 @@ const API = "https://fyp-server-bxs6.onrender.com/api";
 
 let loginUser = async (email: string, password: string) => {
   try {
-    const response = await fetch(API + "/auth/login", {
+    const response = await fetch(`${API}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

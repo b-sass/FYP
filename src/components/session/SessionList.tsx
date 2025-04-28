@@ -16,7 +16,7 @@ let SessionList = ({sessions, onClose}: {sessions: Session[], onClose: () => voi
         <h2>Available Sessions</h2>
         <ul className={styles.sessionList}>
           {sessions.map((session) => (
-            <li key={session.id} className={styles.sessionItem}>
+            <li className={styles.sessionItem}>
               <span>{session.name}</span>
               <button
                 onClick={() => handlePick(session)}

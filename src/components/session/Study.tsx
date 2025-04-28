@@ -7,9 +7,10 @@ let Study = () => {
   const navigate = useNavigate();
   const { session } = location.state;
 
-  const [timeLeft, setTimeLeft] = useState(25 * 60); // Default 25 minutes
+  const [timeLeft, setTimeLeft] = useState(1 * 5); // Default 25 minutes
   const [isRunning, setIsRunning] = useState(false);
   const [tasks, setTasks] = useState(session.tasks || []);
+  const [timerType, setTimerType] = useState<'study' | 'break'>('study'); // Track current timer type
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -19,13 +20,24 @@ let Study = () => {
       }, 1000);
     } else if (timeLeft === 0) {
       setIsRunning(false);
-      alert('Time is up!');
+      if (timerType === 'study') {
+        alert('Study time is up! Starting a 5-minute break.');
+        setTimerType('break');
+        setTimeLeft(5 * 60); // Set break timer to 5 minutes
+        setIsRunning(true); // Automatically start the break timer
+      } else {
+        alert('Break time is up! Back to study.');
+        setTimerType('study');
+        setTimeLeft(25 * 60); // Reset study timer to 25 minutes
+        setIsRunning(true); // Automatically start the study timer
+      }
     }
     return () => clearInterval(timer);
   }, [isRunning, timeLeft]);
 
-  const startTimer = () => setIsRunning(true);
-  const stopTimer = () => setIsRunning(false);
+  const toggleTimer = () => {
+    setIsRunning((prev) => !prev);
+  };
 
   const finishSession = () => {
     const remainingTasks = tasks.filter((task: any) => !task.completed);
@@ -75,11 +87,12 @@ let Study = () => {
         </ul>
       </div>
       <div className={styles.rightColumn}>
-        <h2>Pomodoro Timer</h2>
+      <h2>{timerType === 'study' ? 'Study Timer' : 'Break Timer'}</h2>
         <div className={styles.timer}>{formatTime(timeLeft)}</div>
         <div className={styles.timerControls}>
-          <button onClick={startTimer} className={styles.button}>Start</button>
-          <button onClick={stopTimer} className={styles.button}>Stop</button>
+          <button onClick={toggleTimer} className={styles.button}>
+            {isRunning ? 'Stop' : 'Start'}
+          </button>
           <button onClick={finishSession} className={styles.button}>Finish Session</button>
         </div>
       </div>

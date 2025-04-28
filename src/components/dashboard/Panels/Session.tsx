@@ -1,20 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "../../ui/Button";
 import SessionList from "../../session/SessionList";
 import { Session } from "../../../types/Session";
+import { getSessions } from "../../../API/sessions.ts";
 
 const handlePlanning = () => {
   window.ipcRenderer.send('open-planning');
 };
-
-const handleSession = () => {
-  window.ipcRenderer.send('open-session');
-};
-
-const handlePick = () => {
-  
-};
-
 
 let SessionPlan = () => {
   return(
@@ -29,11 +21,7 @@ let SessionPlan = () => {
 
 let SessionBegin = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [sessions, setSessions] = useState<Session[]>([
-    { id: "1", name: 'Math Study Session', startDate: new Date().toString(), endDate: new Date().toString()},
-    { id: "2", name: 'Science Revision', startDate: new Date().toString(), endDate: new Date().toString()},
-    { id: "3", name: 'History Notes Review', startDate: new Date().toString(), endDate: new Date().toString()},
-  ]); // Replace this with API data
+  const [sessions, setSessions] = useState<Session[]>([]);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -42,6 +30,19 @@ let SessionBegin = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  useEffect(() => {
+    const fetchSessions = async () => {
+      try {
+        const response = await getSessions(); // Replace with your API call
+        setSessions(response); // Assuming `response` is an array of sessions
+      } catch (error) {
+        console.error("Error fetching sessions:", error);
+      }
+    };
+
+    fetchSessions();
+  }, []);
 
   return(
     <>
@@ -54,7 +55,7 @@ let SessionBegin = () => {
       </ul>
 
       {isModalOpen && (
-        <SessionList sessions={sessions} onPick={handlePick} onClose={closeModal} />
+        <SessionList sessions={sessions} onClose={closeModal} />
       )}
     </>
   );
